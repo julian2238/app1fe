@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
 import React from 'react'
+import { router } from 'expo-router'
 
 const Login = () => {
   return (
@@ -16,7 +17,7 @@ const Login = () => {
         <TextInput style={styles.input}/>
       </View>
       <Text style={styles.textForgotPassword}>Forgot Password</Text>
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={() => router.replace('/(app)/home')}>
         <Text style={styles.textButton}>Sign In</Text>
       </Pressable>
     </View>
