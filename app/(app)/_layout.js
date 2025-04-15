@@ -10,6 +10,8 @@ import { Text, View } from "react-native";
 import Colors from "../../utils/Colors";
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import EvilIcons from '@expo/vector-icons/EvilIcons';
+import useAuthStore from '../../src/store/store';
+import { router } from 'expo-router';
 
 const DrawerLayout = () => {
   return (
@@ -66,6 +68,13 @@ function CustomDrawerContent(props) {
 
     const { top, bottom } = useSafeAreaInsets();
 
+    const logout = useAuthStore(state => state.logout);
+
+    const handleLogout = () => {
+        logout()
+        router.replace('/login')
+    }
+
     return (
         <View style={{ flex: 1 }}>
             <DrawerContentScrollView {...props}>
@@ -79,7 +88,7 @@ function CustomDrawerContent(props) {
                 </View>
                 <View style={{ height: 1, backgroundColor: "#ccc", marginBottom: 20}} />
                 <DrawerItemList {...props}/>
-                <DrawerItem label={"Logout"} onPress={() => {}} />
+                <DrawerItem label={"Logout"} onPress={handleLogout} />
             </DrawerContentScrollView>
         </View>
     )
