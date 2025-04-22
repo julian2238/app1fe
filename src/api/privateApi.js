@@ -1,5 +1,6 @@
 import useAuthStore from "../store/store";
 import axiosInstance from "./axiosInstance";
+import { handleAxiosError } from "../../utils/utils";
 
 const privateApi = axiosInstance;
 
@@ -13,5 +14,13 @@ privateApi.interceptors.request.use(
     },
     (error) => Promise.reject(error)
 )
+
+privateApi.interceptors.response.use(
+    res => res,
+    err => {
+        handleAxiosError(err);
+        return Promise.reject(err);
+    }
+);
 
 export default privateApi;

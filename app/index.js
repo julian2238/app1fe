@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { Redirect } from 'expo-router'
 import useAuthStore from '../src/store/store';
 import { ActivityIndicator, View } from 'react-native';
+import SplashScreen from '../components/SplashScreen';
 
 const AuthLayout = () => {
 
@@ -11,15 +12,11 @@ const AuthLayout = () => {
   const getTokenFromStorage = useAuthStore(state => state.getTokenFromStorage);
 
   useEffect(() => {
-    getTokenFromStorage()
+      getTokenFromStorage()
   }, [])
   
   if (isLoading) {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <ActivityIndicator size="large" />
-      </View>
-    );
+    return <SplashScreen />
   }
 
   

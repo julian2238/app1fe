@@ -1,18 +1,14 @@
+import Toast from 'react-native-toast-message'
 import { Stack } from 'expo-router'
 import { StatusBar } from 'expo-status-bar'
-import { View, Text } from 'react-native'
+import { toastConfig } from '../src/utils/toast'
 
 const RootLayout = () => {
   return (
     <>
         <StatusBar style="auto" />
-        <Stack 
-        screenOptions={{ headerShown: false }}
-        >
-            <Stack.Screen name="index" />
-            <Stack.Screen name="login" />
-            <Stack.Screen name="(app)" />
-        </Stack>
+        <Stack screenOptions={{ headerShown: false }} />
+        <Toast config={toastConfig}/>
     </>
   )
 }

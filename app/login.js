@@ -14,12 +14,17 @@ const Login = () => {
     try {
       setLoading(true)
       const data = await authServices.login(email, password)
-      await login({ user: email, token: data.accessToken })
-      router.replace('/(app)/home')
-      setLoading(false)
-    } catch (error) { }
-  };
 
+      if(data){
+        await login({ user: email, token: data.accessToken })
+        router.replace('/(app)/home')
+      }
+
+      setLoading(false)
+    } catch (error) {
+      setLoading(false)
+    }
+  };
 
   return (
     <View style={styles.container}>
