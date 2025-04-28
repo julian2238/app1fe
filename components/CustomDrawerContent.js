@@ -5,6 +5,7 @@ import EvilIcons from '@expo/vector-icons/EvilIcons';
 import { router } from 'expo-router';
 import { colors } from '../src/utils/colors';
 import useAuthStore from "../src/store/store";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 const CustomDrawerContent = (props) => {
 
@@ -28,7 +29,28 @@ const CustomDrawerContent = (props) => {
                     </View>
                 </View>
                 <View style={{ height: 1, backgroundColor: "#ccc", marginBottom: 20}} />
-                <DrawerItemList {...props}/>
+                <DrawerItem
+                  icon={({ color, size }) => (
+                    <Ionicons name="home-outline" size={size} color={color} />
+                  )}
+                  label={"Home"}
+                  onPress={() => { router.push('/(app)/(tabs)/home') }}
+                />
+                <DrawerItem
+                  icon={({ color, size }) => (
+                    <Ionicons name="document-outline" size={size} color={color} />
+                  )}
+                  label={"Documents"}
+                  onPress={() => { router.push('/(app)/(tabs)/documents') }}
+                />
+                <DrawerItem
+                  icon={({ color, size }) => (
+                    <Ionicons name="fast-food-outline" size={size} color={color} />
+                  )}
+                  label={"Menu"}
+                  onPress={() => { router.push('/(app)/menu') }}
+                />
+                {/* <DrawerItemList {...props}/> */}
                 <DrawerItem label={"Logout"} onPress={handleLogout} />
             </DrawerContentScrollView>
         </View>

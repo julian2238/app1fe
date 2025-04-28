@@ -21,7 +21,7 @@ const AuthLayout = () => {
 
   
   if(token){
-    return <Redirect href="/(app)/home" />
+    return <Redirect href="/(app)/(tabs)/home" />
   }
 
   return <Redirect href="/login" />

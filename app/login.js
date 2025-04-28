@@ -17,7 +17,7 @@ const Login = () => {
 
       if(data){
         await login({ user: email, token: data.accessToken })
-        router.replace('/(app)/home')
+        router.replace('/(app)/(tabs)/home')
       }
 
       setLoading(false)

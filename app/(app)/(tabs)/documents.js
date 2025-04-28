@@ -1,12 +1,11 @@
 import { View, Text } from 'react-native'
-import React from 'react'
 
-const Home = () => {
+const Documents = () => {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home</Text>
+      <Text>Documents</Text>
     </View>
   )
 }
 
-export default Home
+export default Documents
