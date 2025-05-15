@@ -19,11 +19,6 @@ const DrawerLayout = () => {
                 headerShown: false,
             }}
         >
-        <Drawer.Screen name="menu"  options={{ headerShown: true, headerTitle: 'Menu'}} />
-        <Drawer.Screen name="courses"  options={{ headerShown: true, headerTitle: 'Courses'}} />
-        <Drawer.Screen name="documents"  options={{ headerShown: true, headerTitle: 'Documents'}} />
-
-
         </Drawer>
     </GestureHandlerRootView>
   )
