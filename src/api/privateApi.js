@@ -1,12 +1,12 @@
 import useAuthStore from "../store/store";
 import axiosInstance from "./axiosInstance";
-import { handleAxiosError } from "../../utils/utils";
+import { handleAxiosError } from "../utils/utils";
 
 const privateApi = axiosInstance;
 
 privateApi.interceptors.request.use(
     async (config) => {
-        const token = useAuthStore.getState().getToken();
+        const token = useAuthStore.getState().token
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
         }
